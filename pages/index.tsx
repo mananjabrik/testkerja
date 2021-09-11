@@ -32,6 +32,7 @@ const Home: NextPage = () => {
           <ProductsRender dataRenders={data ?? []} />
           <Box
             mt="5"
+            mx="auto"
             w={{
               xl: "80rem",
               lg: "60rem",
