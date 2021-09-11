@@ -20,20 +20,15 @@ const Home: NextPage = () => {
       <Navbar />
       <Filter />
       <Stack direction="row" px="5">
-        <Box
-          flex={{ xl: 1, md: 2, sm: 1, base: 1 }}
-          display={{ xl: "flex", md: "none", sm: "none", base: "none" }}
-        >
-          <Sidebar />
-        </Box>
+        <Sidebar />
         <Box flex={{ xl: 6, md: 1, sm: 1, base: 1 }}>
           <Box mt="5">
             <Banner />
           </Box>
           <ProductsRender dataRenders={data ?? []} />
-          {/* <Box w="100rem" mt="5">
+          <Box mt="5" w="20rem">
             <Caraousel />
-          </Box> */}
+          </Box>
           <ProductsRender dataRenders={data ?? []} />
         </Box>
       </Stack>
