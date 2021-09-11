@@ -1,9 +1,12 @@
 export * from "./Navbar";
-export * from "./ActionButton";
-export * from "./ActionSearch";
-export * from "./Filter";
+
+export * from "./filteringitems/ActionButton";
+export * from "./filteringitems/Filter";
+export * from "./filteringitems/ActionSearch";
+
 export * from "./Sidebar";
 export * from "./Catalog";
+
 export * from "./Caraousel";
 export * from "./Banner";
 export * from "./NextArrows";

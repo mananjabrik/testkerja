@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack } from "@chakra-ui/react";
-import { ActionButton, ActionSearch } from ".";
+import { ActionButton, ActionSearch } from "..";
 export const Filter = () => {
    return (
       <Stack
