@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { useState } from "react";
 import { Box, Stack } from "@chakra-ui/react";
 import {
   Banner,
@@ -16,7 +17,6 @@ import Image3 from "../aset/BannernewComing.png";
 
 import Product from "../aset/data/products.json";
 import { ProductDTO } from "../type/type";
-import { useState } from "react";
 
 const Home: NextPage = () => {
   const [filter, setFilter] = useState("");
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
 
   const filterItems = (arr: Array<ProductDTO>, query: string) => {
     return arr?.filter(
-      (el) => el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      (name) => name.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
     );
   };
 

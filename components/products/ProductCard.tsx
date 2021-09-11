@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Box, Image, Text, Icon } from "@chakra-ui/react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { ProductDTO } from "../../type/type";
-
-interface ProductCardProps extends ProductDTO {}
+import Link from "next/link";
+interface ProductCardProps extends ProductDTO {
+  product_click: () => void;
+  product_enter: () => void;
+}
 export const ProductCard: React.FC<ProductCardProps> = (props) => {
   const [favorite, setFavorite] = useState(false);
   const handleCLick = () => {
@@ -11,10 +14,13 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
   };
   return (
     <Box
+      href="/detail"
       rounded="xl"
       overflow="hidden"
       bg="white"
       p={{ xl: "5", md: "4", sm: "3", base: "3" }}
+      onClick={props.product_click}
+      onMouseEnter={props.product_enter}
     >
       <Box
         flex={1}
@@ -31,7 +37,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
       </Box>
       <Box
         w="100%"
-        h={{ xl: "16rem", md: "19rem", sm: "10rem", base: "7rem" }}
+        h={{ xl: "13rem", md: "15rem", sm: "10rem", base: "7rem" }}
         overflow="hidden"
       >
         <Image
