@@ -11,3 +11,10 @@ export * from "./Caraousel";
 export * from "./Banner";
 export * from "./NextArrows";
 export * from "./PrevArrows";
+
+export * from "./products/ProductCard";
+export * from "./products/ProductsRender";
+
+export * from "./JoinCommunity";
+
+export * from "./footer/Footer";
