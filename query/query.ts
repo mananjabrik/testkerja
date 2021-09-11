@@ -8,6 +8,6 @@ const httpClient = axios.create({
 export const UseProductsQuery = () => {
   useQuery("products", async () => {
     const axiosResponse = await httpClient.get("/products");
-    return axiosResponse.data;
+    return axiosResponse;
   });
 };

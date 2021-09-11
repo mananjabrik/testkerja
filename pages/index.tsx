@@ -12,10 +12,8 @@ import {
 } from "../components";
 import { UseProductsQuery } from "../query/query";
 const Home: NextPage = () => {
-  //@ts-ignore
-  const { data, isLoading } = ProductsQuery();
+  const { data, isLoading } = UseProductsQuery();
   console.log(data);
-
   return (
     <Box bg="gray.100" w="100%">
       <Navbar />
