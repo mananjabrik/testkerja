@@ -1,7 +1,6 @@
 import { atom } from "recoil";
-import { ProductDTO } from "../type/type";
-export const producState = atom<ProductDTO>({
+
+export const producState = atom({
   key: "producState",
-  //@ts-ignore
   default: {},
 });

@@ -5,14 +5,13 @@ import { ProductDTO } from "../../type/type";
 import { useRecoilState } from "recoil";
 import { producState } from "../../state/product";
 import { useRouter } from "next/dist/client/router";
-import Link from "next/link";
 interface ProducrRenderProps {
   dataRenders: ProductDTO[];
 }
 export const ProductsRender: React.FC<ProducrRenderProps> = (props) => {
   const [product, setProduct] = useRecoilState(producState);
   const router = useRouter();
-  console.log(product);
+  // console.log(product);
 
   return (
     <Wrap

@@ -4,8 +4,8 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { ProductDTO } from "../../type/type";
 import Link from "next/link";
 interface ProductCardProps extends ProductDTO {
-  product_click: () => void;
-  product_enter: () => void;
+  product_click?: () => void;
+  product_enter?: () => void;
 }
 export const ProductCard: React.FC<ProductCardProps> = (props) => {
   const [favorite, setFavorite] = useState(false);
