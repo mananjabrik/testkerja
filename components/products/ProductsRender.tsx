@@ -7,7 +7,15 @@ interface ProducrRenderProps {
 }
 export const ProductsRender: React.FC<ProducrRenderProps> = (props) => {
   return (
-    <Wrap mt="5" justify="space-between">
+    <Wrap
+      mt={{ xl: "5", md: "4", sm: "3", base: "3" }}
+      justify={{
+        xl: "space-between",
+        md: "left",
+        sm: "space-around",
+        base: "space-around",
+      }}
+    >
       {props.dataRenders?.map((item) => {
         return (
           <WrapItem

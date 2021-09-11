@@ -12,7 +12,12 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
     setFavorite(!favorite);
   };
   return (
-    <Box rounded="xl" overflow="hidden" bg="white" p="5">
+    <Box
+      rounded="xl"
+      overflow="hidden"
+      bg="white"
+      p={{ xl: "5", md: "4", sm: "3", base: "3" }}
+    >
       <Box
         flex={1}
         justifyContent="flex-end"

@@ -35,7 +35,7 @@ const Home: NextPage = () => {
           <ProductsRender dataRenders={data ?? []} />
         </Box>
       </Stack>
-      {/* <JoinCommunity /> */}
+      <JoinCommunity />
       {/* <Footer /> */}
     </Box>
   );
