@@ -15,7 +15,7 @@ export const Sidebar = () => {
   const Information = ["About Us", "FAQ", "Shipping"];
 
   return (
-    <Stack spacing="5">
+    <Stack spacing="5" mt="5">
       <Catalog title="Product" subs={gendreCatlog} textTransform="capitalize" />
       <Catalog title="Category" subs={category} textTransform="capitalize" />
       <Catalog title="Information" subs={Information} />

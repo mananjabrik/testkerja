@@ -16,7 +16,7 @@ const Home: NextPage = () => {
   const { data, isLoading } = useProductQuery();
 
   return (
-    <Box bg="gray.100" w="100%">
+    <Box bg="gray.100" overflow="hidden">
       <Navbar />
       <Filter />
       <Stack direction="row" px="5">
@@ -27,7 +27,9 @@ const Home: NextPage = () => {
           <Sidebar />
         </Box>
         <Box flex={{ xl: 6, md: 1, sm: 1, base: 1 }}>
-          {/* <Banner /> */}
+          <Box mt="5">
+            <Banner />
+          </Box>
           <ProductsRender dataRenders={data ?? []} />
           {/* <Box w="100rem" mt="5">
             <Caraousel />
