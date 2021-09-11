@@ -4,3 +4,7 @@ export * from "./ActionSearch";
 export * from "./Filter";
 export * from "./Sidebar";
 export * from "./Catalog";
+export * from "./Caraousel";
+export * from "./Banner";
+export * from "./NextArrows";
+export * from "./PrevArrows";
