@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { Box, Image, Text, Icon } from "@chakra-ui/react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-interface ProductCardProps {
-  imageurl: string;
-  title: string;
-  price: string;
-}
+import { ProductDTO } from "../../type/type";
+
+interface ProductCardProps extends ProductDTO {}
 export const ProductCard: React.FC<ProductCardProps> = (props) => {
   const [favorite, setFavorite] = useState(false);
   const handleCLick = () => {
@@ -37,8 +35,8 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
         overflow="hidden"
       >
         <Image
-          src={props.imageurl}
-          alt={props.title}
+          src={props.image_url}
+          alt={props.name}
           loading="lazy"
           w="100%"
           objectFit="cover"
@@ -50,7 +48,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
           fontSize={{ xl: "xl", md: "md", sm: "sm", base: "sm" }}
           noOfLines={1}
         >
-          {props.title}
+          {props.name}
         </Text>
         <Text
           fontSize={{

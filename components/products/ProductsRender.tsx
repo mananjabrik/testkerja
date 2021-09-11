@@ -1,16 +1,16 @@
 import React from "react";
 import { Wrap, WrapItem } from "@chakra-ui/react";
 import { ProductCard } from "./ProductCard";
-import { productsDTo } from "../../query/query";
+import { ProductDTO } from "../../type/type";
 interface ProducrRenderProps {
-  dataRenders: productsDTo[];
+  dataRenders: ProductDTO[];
 }
 export const ProductsRender: React.FC<ProducrRenderProps> = (props) => {
   return (
     <Wrap
       mt={{ xl: "5", md: "4", sm: "3", base: "3" }}
       justify={{
-        xl: "space-between",
+        xl: "left",
         md: "left",
         sm: "space-around",
         base: "space-around",
@@ -23,9 +23,9 @@ export const ProductsRender: React.FC<ProducrRenderProps> = (props) => {
             key={item.id}
           >
             <ProductCard
-              imageurl={item.image}
-              title={item.title}
-              price={Number(item.price) * 13000 + ""}
+              image_url="https://preview.thenewsmarket.com/Previews/ADID/StillAssets/320x320/558271.jpg"
+              name={item.name}
+              price={item.price}
             />
           </WrapItem>
         );

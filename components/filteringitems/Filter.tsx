@@ -1,7 +1,8 @@
 import React from "react";
 import { Stack } from "@chakra-ui/react";
-import { ActionButton, ActionSearch } from "..";
-export const Filter = () => {
+import { ActionButton, ActionSearch, ActionSearchProps } from "..";
+interface FilterProps extends ActionSearchProps {}
+export const Filter: React.FC<FilterProps> = (props) => {
   return (
     <Stack
       direction={{
@@ -17,7 +18,7 @@ export const Filter = () => {
       spacing="5"
     >
       <ActionButton />
-      <ActionSearch />
+      <ActionSearch onTyping={props.onTyping} />
     </Stack>
   );
 };

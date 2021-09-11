@@ -10,26 +10,46 @@ import {
   Sidebar,
   Footer,
 } from "../components";
-import { useProductQuery } from "../query/query";
 import Image1 from "../aset/Group45.png";
 import Image2 from "../aset/Group46.png";
 import Image3 from "../aset/BannernewComing.png";
 
+import Product from "../aset/data/products.json";
+import { ProductDTO } from "../type/type";
+import { useState } from "react";
+
 const Home: NextPage = () => {
-  const { data, isLoading } = useProductQuery();
+  const [filter, setFilter] = useState("");
+
   const dataImage = [Image1, Image2, Image1, Image2];
   const newUpComing = [Image3, Image3, Image3];
+
+  const filterItems = (arr: Array<ProductDTO>, query: string) => {
+    return arr?.filter(
+      (el) => el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+    );
+  };
+
+  const onTyping = (e: any) => {
+    setFilter(e.target.value);
+  };
   return (
     <Box bg="gray.100" overflow="hidden">
       <Navbar />
-      <Filter />
+      <Filter
+        //@ts-ignore
+        onTyping={onTyping}
+      />
       <Stack direction="row" px="5">
         <Sidebar />
         <Box flex={{ xl: 6, md: 1, sm: 1, base: 1 }}>
           <Box mt="5">
             <Banner banner1={dataImage} banner2={dataImage} />
           </Box>
-          <ProductsRender dataRenders={data ?? []} />
+          <ProductsRender
+            //@ts-ignore
+            dataRenders={filterItems(Product, filter)}
+          />
           <Box
             mt="5"
             mx="auto"
@@ -43,7 +63,7 @@ const Home: NextPage = () => {
           >
             <Caraousel urls={newUpComing} />
           </Box>
-          <ProductsRender dataRenders={data ?? []} />
+          {/* <ProductsRender dataRenders={data ?? []} /> */}
         </Box>
       </Stack>
       <JoinCommunity />
