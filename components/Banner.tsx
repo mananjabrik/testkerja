@@ -1,8 +1,13 @@
 import React from "react";
-import { Stack, Box, Image } from "@chakra-ui/react";
-import { Caraousel } from ".";
-
-export const Banner = () => {
+import { Stack, Box } from "@chakra-ui/react";
+import Image1 from "../aset/Group45.png";
+import Image2 from "../aset/Group46.png";
+import { Caraousel, CaraouselProps } from ".";
+export interface BannerProps {
+  banner1: StaticImageData[];
+  banner2: StaticImageData[];
+}
+export const Banner: React.FC<BannerProps> = (props) => {
   return (
     <Stack
       direction={{
@@ -24,7 +29,7 @@ export const Banner = () => {
           base: "24rem",
         }}
       >
-        <Caraousel />
+        <Caraousel urls={props.banner1} />
       </Box>
       <Box
         w={{
@@ -35,7 +40,7 @@ export const Banner = () => {
           base: "24rem",
         }}
       >
-        <Caraousel />
+        <Caraousel urls={props.banner2} />
       </Box>
     </Stack>
   );

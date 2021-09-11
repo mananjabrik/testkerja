@@ -4,14 +4,11 @@ import Slider from "react-slick";
 import Image from "next/image";
 
 import { NextArrow, PrevArrow } from ".";
-import gambar from "../aset/Group45.png";
-import gambar2 from "../aset/Group46.png";
 
-interface CaraouselProps {
-  urls?: StaticImageData[];
+export interface CaraouselProps {
+  urls: StaticImageData[];
 }
 export const Caraousel: React.FC<CaraouselProps> = (props) => {
-  const dataImage = [gambar, gambar2, gambar, gambar2];
   const settings = {
     infinite: true,
     speed: 500,
@@ -26,7 +23,7 @@ export const Caraousel: React.FC<CaraouselProps> = (props) => {
   return (
     <Box>
       <Slider {...settings}>
-        {dataImage?.map((item: StaticImageData, idx: number) => {
+        {props.urls?.map((item: StaticImageData, idx: number) => {
           return (
             <Box key={idx}>
               <Image src={item} alt="aset" />
