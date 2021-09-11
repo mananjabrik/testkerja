@@ -2,12 +2,20 @@ import { useQuery } from "react-query";
 import axios from "axios";
 
 const httpClient = axios.create({
-  baseURL: "https://shoesmart-test.vercel.app/api/products",
-  withCredentials: true,
+  baseURL: "https://fakestoreapi.com",
 });
-export const UseProductsQuery = () => {
+
+export interface productsDTo {
+  id: number;
+  title: string;
+  price: string;
+  category: string;
+  description: string;
+  image: string;
+}
+
+export const useProductQuery = () =>
   useQuery("products", async () => {
-    const axiosResponse = await httpClient.get<[]>("");
+    const axiosResponse = await httpClient.get<productsDTo[]>("/products");
     return axiosResponse.data;
   });
-};
