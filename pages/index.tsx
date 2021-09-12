@@ -38,6 +38,7 @@ const Home: NextPage = () => {
     <Box bg="gray.100" overflow="hidden">
       <Navbar />
       <Filter
+        //@ts-ignore
         brandData={Product}
         //@ts-ignore
         onTyping={onTyping}
