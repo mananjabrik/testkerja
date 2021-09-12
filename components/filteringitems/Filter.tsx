@@ -1,7 +1,10 @@
 import React from "react";
 import { Stack } from "@chakra-ui/react";
 import { ActionButton, ActionSearch, ActionSearchProps } from "..";
-interface FilterProps extends ActionSearchProps {}
+import { ProductDTO } from "../../type/type";
+interface FilterProps extends ActionSearchProps {
+  brandData: ProductDTO[];
+}
 export const Filter: React.FC<FilterProps> = (props) => {
   return (
     <Stack
@@ -17,7 +20,7 @@ export const Filter: React.FC<FilterProps> = (props) => {
       alignItems="center"
       spacing="5"
     >
-      <ActionButton />
+      <ActionButton brandData={props.brandData} />
       <ActionSearch onTyping={props.onTyping} />
     </Stack>
   );

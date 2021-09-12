@@ -16,10 +16,9 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
     <Box
       href="/detail"
       rounded="xl"
-      overflow="hidden"
+      // overflow="hidden"
       bg="white"
       p={{ xl: "5", md: "4", sm: "3", base: "3" }}
-      onClick={props.product_click}
       onMouseEnter={props.product_enter}
     >
       <Box
@@ -39,6 +38,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
         w="100%"
         h={{ xl: "13rem", md: "15rem", sm: "10rem", base: "7rem" }}
         overflow="hidden"
+        onClick={props.product_click}
       >
         <Image
           src={props.image_url}
@@ -48,7 +48,10 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
           objectFit="cover"
         />
       </Box>
-      <Box py={{ xl: "1rem", md: "0.5rem", sm: "10px", base: "8px" }}>
+      <Box
+        py={{ xl: "1rem", md: "0.5rem", sm: "10px", base: "8px" }}
+        onClick={props.product_click}
+      >
         <Text
           textTransform="capitalize"
           fontSize={{ xl: "xl", md: "md", sm: "sm", base: "sm" }}

@@ -20,13 +20,12 @@ import { ProductDTO } from "../type/type";
 
 const Home: NextPage = () => {
   const [filter, setFilter] = useState("");
-
   const dataImage = [Image1, Image2, Image1, Image2];
   const newUpComing = [Image3, Image3, Image3];
 
   const filterItems = (arr: Array<ProductDTO>, query: string) => {
     return arr?.filter(
-      (name) => name.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      (el) => el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
     );
   };
 
@@ -37,6 +36,8 @@ const Home: NextPage = () => {
     <Box bg="gray.100" overflow="hidden">
       <Navbar />
       <Filter
+        //@ts-ignore
+        brandData={Product}
         //@ts-ignore
         onTyping={onTyping}
       />

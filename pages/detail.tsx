@@ -22,12 +22,18 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 const Detail = () => {
   //@ts-ignore
   const [product] = useRecoilState<ProductDTO>(producState);
+  console.log(product);
 
   return (
     <Box bg="gray.100">
       <Navbar />
       <Box py="10" px="8">
-        <ProductDetail />
+        <ProductDetail
+          name={product.name}
+          price={product.price}
+          colors={product.colors}
+          variants={product.variants}
+        />
         <Stack direction="row" mt="5" spacing="2rem">
           <Stack
             bg="white"

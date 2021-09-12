@@ -11,7 +11,11 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { FaMinus, FaPlus } from "react-icons/fa";
-export const ProductDetail = () => {
+import { ProductDTO } from "../../type/type";
+
+interface ProductDetailProps extends ProductDTO {}
+
+export const ProductDetail: React.FC<ProductDetailProps> = (props) => {
   return (
     <Stack bg="gray.200" rounded="xl" direction="row" overflow="hidden">
       <Box flex={4} p="5">
@@ -36,10 +40,7 @@ export const ProductDetail = () => {
               <Button>Instruction</Button>
             </Stack>
             <Box bg="white" rounded="lg" p="3" py="5" h="20rem">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
-              repellendus dicta necessitatibus veritatis consequatur repellat
-              doloribus debitis at, magnam excepturi omnis nemo dolorem,
-              possimus impedit officiis animi quidem! Maiores, saepe.
+              {props.description}
             </Box>
           </Stack>
         </Stack>
@@ -78,40 +79,39 @@ export const ProductDetail = () => {
         shadow="dark-lg"
         justifyContent="space-between"
       >
-        <Heading size="md">Title Product</Heading>
-        <Stack>
-          <Heading size="sm">Size</Heading>
-          <Wrap>
-            <WrapItem>
-              <Button>12</Button>
-            </WrapItem>
-            <WrapItem>
-              <Button>12</Button>
-            </WrapItem>
-            <WrapItem>
-              <Button>12</Button>
-            </WrapItem>
-            <WrapItem>
-              <Button>12</Button>
-            </WrapItem>
-            <WrapItem>
-              <Button>12</Button>
-            </WrapItem>
-          </Wrap>
-        </Stack>
+        <Heading size="md">{props.name}</Heading>
+        {props.variants?.map((item, idx) => {
+          return (
+            <Stack key={idx}>
+              <Heading size="sm">Size</Heading>
+              <Wrap>
+                {item.sizes?.map((size, idx) => {
+                  return (
+                    <WrapItem key={idx}>
+                      <Button>{size.size}</Button>
+                    </WrapItem>
+                  );
+                })}
+              </Wrap>
+            </Stack>
+          );
+        })}
         <Stack>
           <Heading size="sm">Color</Heading>
           <Wrap>
-            <WrapItem>
-              <Button>Blue</Button>
-            </WrapItem>
-            <WrapItem>
-              <Button>Black</Button>
-            </WrapItem>
+            {props.colors?.map((color) => {
+              return (
+                <WrapItem key={color.id}>
+                  <Button bg={color.rgb} color="white">
+                    {color.name}
+                  </Button>
+                </WrapItem>
+              );
+            })}
           </Wrap>
         </Stack>
         <Stack direction="row" alignItems="center" justify="space-between">
-          <Heading size="sm">Color</Heading>
+          <Heading size="sm">Quantity</Heading>
           <Stack
             direction="row"
             alignItems="center"
@@ -132,7 +132,7 @@ export const ProductDetail = () => {
         </Stack>
         <Stack>
           <Heading size="sm">Price</Heading>
-          <Heading size="lg">RP. 369.000</Heading>
+          <Heading size="lg">RP. {props.price}</Heading>
         </Stack>
         <Stack direction="row" alignItems="center" spacing="1rem">
           <Button size="sm">Add to cart</Button>
