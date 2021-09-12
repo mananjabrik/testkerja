@@ -27,12 +27,16 @@ const Detail = () => {
   return (
     <Box bg="gray.100">
       <Navbar />
-      <Box py="10" px="8">
+      <Box
+        py={{ xl: "10", md: "8", sm: "2", base: "2" }}
+        px={{ xl: "8", md: "8", sm: "2", base: "2" }}
+      >
         <ProductDetail
           name={product.name}
           price={product.price}
           colors={product.colors}
           variants={product.variants}
+          description={product.description}
         />
         <Stack direction="row" mt="5" spacing="2rem">
           <Stack
