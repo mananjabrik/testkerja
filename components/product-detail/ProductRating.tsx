@@ -1,5 +1,6 @@
 import React from "react";
 import { Stack, Heading, Text } from "@chakra-ui/react";
+import { StartRating } from "..";
 export const ProductRating = () => {
   return (
     <Stack
@@ -12,7 +13,7 @@ export const ProductRating = () => {
       p="10"
     >
       <Heading size="4xl">5.0</Heading>
-      <Text>Stars</Text>
+      <StartRating rating="4.5rem" />
       <Text>Sangat Baik</Text>
     </Stack>
   );

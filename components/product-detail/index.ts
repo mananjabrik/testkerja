@@ -3,3 +3,4 @@ export * from "./ProductDetailImage";
 export * from "./productDescription";
 
 export * from "./ProductRating";
+export * from "./ProductComment";

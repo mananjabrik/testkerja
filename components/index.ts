@@ -18,5 +18,7 @@ export * from "./products/ProductsRender";
 export * from "./JoinCommunity";
 
 export * from "./product-detail/ProductDetail";
+export * from "./product-detail";
+export * from "./StarsRating";
 
 export * from "./footer/Footer";

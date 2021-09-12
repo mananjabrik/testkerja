@@ -1,23 +1,18 @@
 import React from "react";
-import {
-  Box,
-  Stack,
-  Heading,
-  Container,
-  Button,
-  Wrap,
-  WrapItem,
-  Icon,
-  Text,
-  Image,
-} from "@chakra-ui/react";
+import { Box, Stack, Button, Wrap, WrapItem } from "@chakra-ui/react";
 
 import { useRecoilState } from "recoil";
 import { producState } from "../state/product";
 import { ProductDTO } from "../type/type";
 
-import { Footer, Navbar, ProductCard, ProductDetail } from "../components";
-import { FaMinus, FaPlus } from "react-icons/fa";
+import {
+  Footer,
+  Navbar,
+  ProductCard,
+  ProductComment,
+  ProductDetail,
+  ProductRating,
+} from "../components";
 
 const Detail = () => {
   //@ts-ignore
@@ -38,37 +33,13 @@ const Detail = () => {
           variants={product.variants}
           description={product.description}
         />
-        <Stack direction="row" mt="5" spacing="2rem">
-          <Stack
-            bg="white"
-            flex={1}
-            h="20rem"
-            rounded="lg"
-            textAlign="center"
-            justify="space-between"
-            p="10"
-          >
-            <Heading size="4xl">5.0</Heading>
-            <Text>Stars</Text>
-            <Text>Sangat Baik</Text>
-          </Stack>
-          <Box bg="white" flex={5} rounded="lg" p="10">
-            <Text>What They Think about this product</Text>
-            <Stack direction="row">
-              <Box flex={1} p="5">
-                <Image src="" alt="g ada"></Image>
-                <Text>Stars</Text>
-              </Box>
-              <Box p="5" flex={4}>
-                <Text>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptates ipsa rerum minima culpa beatae magni dolorem eius
-                  architecto et molestiae, provident laborum cum quae excepturi
-                  accusantium ad repellendus obcaecati eaque?
-                </Text>
-              </Box>
-            </Stack>
-          </Box>
+        <Stack
+          direction={{ xl: "row", md: "row", sm: "column", base: "column" }}
+          mt="5"
+          spacing="2rem"
+        >
+          <ProductRating />
+          <ProductComment />
         </Stack>
         <Box flex={1} display="flex" justifyContent="center" mt="5">
           <Button bg="black" color="white">
