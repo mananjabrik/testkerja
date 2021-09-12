@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Stack } from "@chakra-ui/react";
 import {
   Banner,
@@ -17,16 +17,17 @@ import Image3 from "../aset/BannernewComing.png";
 
 import Product from "../aset/data/products.json";
 import { ProductDTO } from "../type/type";
+import { useRecoilState } from "recoil";
+import { brandState } from "../state/brandState";
 
 const Home: NextPage = () => {
-  console.log(Product);
-
   const [filter, setFilter] = useState("");
+  const [brand] = useRecoilState(brandState);
   const dataImage = [Image1, Image2, Image1, Image2];
   const newUpComing = [Image3, Image3, Image3];
 
-  const filterItems = (arr: Array<ProductDTO>, query: string) => {
-    return arr?.filter(
+  const filterItems = (query: string) => {
+    return Product?.filter(
       (el) => el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
     );
   };
@@ -34,6 +35,15 @@ const Home: NextPage = () => {
   const onTyping = (e: any) => {
     setFilter(e.target.value);
   };
+
+  useEffect(() => {
+    if (brand) {
+      setFilter(brand);
+    } else {
+      setFilter("");
+    }
+  }, [brand]);
+
   return (
     <Box bg="gray.100" overflow="hidden">
       <Navbar />
@@ -51,7 +61,7 @@ const Home: NextPage = () => {
           </Box>
           <ProductsRender
             //@ts-ignore
-            dataRenders={filterItems(Product, filter)}
+            dataRenders={filterItems(filter)}
           />
           <Box
             mt="5"
