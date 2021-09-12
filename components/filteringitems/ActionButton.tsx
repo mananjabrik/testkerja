@@ -1,19 +1,22 @@
-import React, { useState } from "react";
-import { Stack, Box, Icon } from "@chakra-ui/react";
+import React from "react";
+import { Stack, Box, Icon, Button } from "@chakra-ui/react";
 import { FaGreaterThan } from "react-icons/fa";
 import { ProductDTO } from "../../type/type";
+import { useRecoilState } from "recoil";
+import { brandState } from "../../state/brandState";
 interface ActionButtonProps {
   brandData: ProductDTO;
 }
 export const ActionButton: React.FC<ActionButtonProps> = (props) => {
-  const [brandFilter, setBrandFilter] = useState("");
-
-  console.log(brandFilter);
-
+  const [brand, setBrand] = useRecoilState(brandState);
   return (
     <Box flex={1} w="full">
-      <Stack direction="row" w="full" pb="3">
-        <Box
+      <Stack
+        direction={{ xl: "row", sm: "column", base: "column" }}
+        w="full"
+        pb="3"
+      >
+        <Button
           p="1"
           px="3"
           rounded="md"
@@ -22,31 +25,13 @@ export const ActionButton: React.FC<ActionButtonProps> = (props) => {
           color="white"
           alignItems="center"
           display="flex"
+          cursor="pointer"
+          onClick={() => setBrand("")}
         >
           ALL BRANDS
-        </Box>
+        </Button>
 
-        {
-          //@ts-ignore
-          props?.brandData?.categories?.map((item: any, idx: number) => {
-            return (
-              <Box
-                key={idx}
-                p="1"
-                px="3"
-                rounded="md"
-                fontWeight="semibold"
-                bg="white"
-                alignItems="center"
-                display="flex"
-                // onClick={() => setBrandFilter(item.brand_name ?? "")}
-              >
-                {item.categories?.[1]}
-              </Box>
-            );
-          })
-        }
-        <Box
+        <Button
           p="1"
           px="3"
           rounded="md"
@@ -54,10 +39,11 @@ export const ActionButton: React.FC<ActionButtonProps> = (props) => {
           bg="white"
           alignItems="center"
           display="flex"
+          onClick={() => setBrand("4U")}
         >
           4U Footwear
-        </Box>
-        <Box
+        </Button>
+        <Button
           p="1"
           px="3"
           rounded="md"
@@ -65,9 +51,10 @@ export const ActionButton: React.FC<ActionButtonProps> = (props) => {
           bg="white"
           alignItems="center"
           display="flex"
+          onClick={() => setBrand("Alseno Kids")}
         >
           Alseno Kids
-        </Box>
+        </Button>
         <Box p="1" px="3" fontWeight="semibold">
           More Brands <Icon as={FaGreaterThan} fontSize="xx-small" />
         </Box>

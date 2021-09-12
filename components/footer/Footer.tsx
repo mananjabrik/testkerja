@@ -34,10 +34,10 @@ export const Footer = () => {
               Category
             </Heading>
             <UnorderedList listStyleType="none" marginInlineStart="none">
-              <ListItem>Lorem</ListItem>
-              <ListItem>Lorem</ListItem>
-              <ListItem>Lorem</ListItem>
-              <ListItem>Lorem</ListItem>
+              <ListItem>All</ListItem>
+              <ListItem>Book</ListItem>
+              <ListItem>Flats</ListItem>
+              <ListItem>Pantoefel</ListItem>
             </UnorderedList>
           </Stack>
           <Stack flex={1} spacing="1.5rem">
@@ -45,10 +45,9 @@ export const Footer = () => {
               Information
             </Heading>
             <UnorderedList listStyleType="none" marginInlineStart="none">
-              <ListItem>Lorem</ListItem>
-              <ListItem>Lorem</ListItem>
-              <ListItem>Lorem</ListItem>
-              <ListItem>Lorem</ListItem>
+              <ListItem>About Us</ListItem>
+              <ListItem>FAQ</ListItem>
+              <ListItem>Shipping</ListItem>
             </UnorderedList>
           </Stack>
           <Stack direction="row" spacing="1rem" flex={1}>

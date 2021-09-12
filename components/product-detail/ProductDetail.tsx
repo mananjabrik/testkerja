@@ -77,13 +77,13 @@ export const ProductDetail: React.FC<ProductDetailProps> = (props) => {
               bg="gray.300"
               rounded="full"
             >
-              <Button rounded="full" border="1px" p="1">
+              <Button rounded="full" border="1px" p="1" borderColor="gray.500">
                 <Icon as={FaPlus} fontSize="xs"></Icon>
               </Button>
               <Text w="3rem" textAlign="center">
                 1
               </Text>
-              <Button rounded="full" border="1px" p="1">
+              <Button rounded="full" border="1px" p="1" borderColor="gray.500">
                 <Icon as={FaMinus} fontSize="xs"></Icon>
               </Button>
             </Stack>
