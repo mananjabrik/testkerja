@@ -20,6 +20,7 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
       bg="white"
       p={{ xl: "5", md: "4", sm: "3", base: "3" }}
       onMouseEnter={props.product_enter}
+      cursor="pointer"
     >
       <Box
         flex={1}

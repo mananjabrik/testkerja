@@ -3,6 +3,7 @@ import { Stack, Button, Box } from "@chakra-ui/react";
 
 export interface ProductDescriptionProps {
   description: string;
+  measurement: string;
 }
 export const ProductDescription: React.FC<ProductDescriptionProps> = (
   props
@@ -25,9 +26,10 @@ export const ProductDescription: React.FC<ProductDescriptionProps> = (
         h="20rem"
         overflowY="scroll"
         dangerouslySetInnerHTML={{
-          __html: props.description ?? "tahu",
+          __html: props.description + `</br>` + props.measurement,
         }}
       ></Box>
+      {/* <Box dangerouslySetInnerHTML={{ __html: props.measurement }}></Box> */}
     </Stack>
   );
 };

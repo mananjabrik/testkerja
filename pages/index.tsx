@@ -19,6 +19,8 @@ import Product from "../aset/data/products.json";
 import { ProductDTO } from "../type/type";
 
 const Home: NextPage = () => {
+  console.log(Product);
+
   const [filter, setFilter] = useState("");
   const dataImage = [Image1, Image2, Image1, Image2];
   const newUpComing = [Image3, Image3, Image3];
@@ -36,7 +38,6 @@ const Home: NextPage = () => {
     <Box bg="gray.100" overflow="hidden">
       <Navbar />
       <Filter
-        //@ts-ignore
         brandData={Product}
         //@ts-ignore
         onTyping={onTyping}

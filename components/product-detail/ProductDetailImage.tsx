@@ -19,7 +19,10 @@ export const ProductDetailImage: React.FC<ProductDetailImageProps> = (
           h={{ xl: "23rem", md: "20rem", sm: "", base: "" }}
         />
 
-        <ProductDescription description={props.description} />
+        <ProductDescription
+          description={props.description}
+          measurement={props.measurement}
+        />
       </Stack>
       <Wrap
         justify="space-between"

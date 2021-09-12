@@ -25,7 +25,10 @@ export const ProductDetail: React.FC<ProductDetailProps> = (props) => {
         direction={{ xl: "row", md: "row", sm: "column", base: "column" }}
         overflow="hidden"
       >
-        <ProductDetailImage description={props.description ?? ""} />
+        <ProductDetailImage
+          description={props.description ?? ""}
+          measurement={props.measurements ?? ""}
+        />
         <Stack
           flex={1}
           p="5"

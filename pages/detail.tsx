@@ -32,6 +32,7 @@ const Detail = () => {
           colors={product.colors}
           variants={product.variants}
           description={product.description}
+          measurements={product.measurements}
         />
         <Stack
           direction={{ xl: "row", md: "row", sm: "column", base: "column" }}

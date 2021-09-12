@@ -3,7 +3,7 @@ import { Stack } from "@chakra-ui/react";
 import { ActionButton, ActionSearch, ActionSearchProps } from "..";
 import { ProductDTO } from "../../type/type";
 interface FilterProps extends ActionSearchProps {
-  brandData: ProductDTO[];
+  brandData: ProductDTO;
 }
 export const Filter: React.FC<FilterProps> = (props) => {
   return (
