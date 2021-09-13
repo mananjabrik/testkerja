@@ -1,6 +1,6 @@
+//@ts-nocheck
 import React from "react";
-import { Box, Stack, Button, Wrap, WrapItem } from "@chakra-ui/react";
-
+import { Box, Stack, Button, Text } from "@chakra-ui/react";
 import { useRecoilState } from "recoil";
 import { producState } from "../state/product";
 import { ProductDTO } from "../type/type";
@@ -17,7 +17,6 @@ import {
 } from "../components";
 
 const Detail = () => {
-  //@ts-ignore
   const [product] = useRecoilState<ProductDTO>(producState);
   const productLimit = Product.slice(0, 5);
 
@@ -50,10 +49,12 @@ const Detail = () => {
           </Button>
         </Box>
         <Box mt="5" bg="white" rounded="lg">
-          <ProductsRender
-            //@ts-ignore
-            dataRenders={productLimit}
-          />
+          <Box px="5" pt="5">
+            <Text fontSize="xl" fontWeight="bold">
+              More Product
+            </Text>
+          </Box>
+          <ProductsRender dataRenders={productLimit} />
         </Box>
       </Box>
       <Footer />
