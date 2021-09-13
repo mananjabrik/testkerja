@@ -11,6 +11,7 @@ import {
   ProductsRender,
   Sidebar,
   Footer,
+  filterItems,
 } from "../components";
 import Image1 from "../aset/Group45.png";
 import Image2 from "../aset/Group46.png";
@@ -20,21 +21,14 @@ import Product from "../aset/data/products.json";
 import { ProductDTO } from "../type/type";
 import { useRecoilState } from "recoil";
 import { brandState } from "../state/brandState";
-
 const Home: NextPage = () => {
   const [filter, setFilter] = useState("");
   const [brand] = useRecoilState(brandState);
   const dataImage = [Image1, Image2, Image1, Image2];
   const newUpComing = [Image3, Image3, Image3];
-  const limitProduct = Product.slice(0, 10);
 
   const limitItem = (arr: Array<ProductDTO>, query: number) => {
     return arr.slice(0, query);
-  };
-  const filterItems = (query: string) => {
-    return limitProduct?.filter(
-      (el) => el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
-    );
   };
 
   const onTyping = (e: any) => {
@@ -60,7 +54,7 @@ const Home: NextPage = () => {
             <Banner banner1={dataImage} banner2={dataImage} />
           </Box>
           <Box>
-            <ProductsRender dataRenders={filterItems(filter)} />
+            <ProductsRender dataRenders={filterItems(Product, brand, filter)} />
           </Box>
           <Box
             mt="5"

@@ -3,6 +3,7 @@ export * from "./Navbar";
 export * from "./filteringitems/ActionButton";
 export * from "./filteringitems/Filter";
 export * from "./filteringitems/ActionSearch";
+export * from "./setup/filterItems";
 
 export * from "./Sidebar";
 export * from "./Catalog";
