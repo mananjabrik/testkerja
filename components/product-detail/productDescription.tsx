@@ -1,7 +1,7 @@
 import React from "react";
-import { Stack, Button, Box } from "@chakra-ui/react";
+import { Stack, Button, Box, StackProps } from "@chakra-ui/react";
 
-export interface ProductDescriptionProps {
+export interface ProductDescriptionProps extends StackProps {
   description: string;
   measurement: string;
 }
@@ -9,11 +9,8 @@ export const ProductDescription: React.FC<ProductDescriptionProps> = (
   props
 ) => {
   return (
-    <Stack
-      flex={1}
-      display={{ xl: "flex", md: "none", sm: "none", base: "none" }}
-    >
-      <Stack direction="row" justify="space-between">
+    <Stack flex={1} {...props}>
+      <Stack direction="row" justify={{ xl: "space-between", sm: "start" }}>
         <Button>Description</Button>
         <Button>Details</Button>
         <Button>Instruction</Button>
@@ -29,7 +26,6 @@ export const ProductDescription: React.FC<ProductDescriptionProps> = (
           __html: props.description + `</br>` + props.measurement,
         }}
       ></Box>
-      {/* <Box dangerouslySetInnerHTML={{ __html: props.measurement }}></Box> */}
     </Stack>
   );
 };

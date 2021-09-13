@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { ProductDTO } from "../../type/type";
-import { ProductDetailImage } from ".";
+import { ProductDescription, ProductDetailImage } from ".";
 
 interface ProductDetailProps extends ProductDTO {}
 
@@ -98,31 +98,15 @@ export const ProductDetail: React.FC<ProductDetailProps> = (props) => {
           </Stack>
         </Stack>
       </Stack>
-      <Stack
-        mt="5"
-        flex={1}
-        display={{ xl: "none", md: "flex", sm: "flex", base: "flex" }}
+      <ProductDescription
+        description={props.description ?? ""}
+        measurement={props.measurements ?? ""}
+        display={{ xl: "none", md: "block", sm: "block", base: "block" }}
         bg="white"
-        p="5"
+        mt="5"
         rounded="lg"
-      >
-        <Stack direction="row">
-          <Button>Description</Button>
-          <Button>Details</Button>
-          <Button>Instruction</Button>
-        </Stack>
-        <Box
-          bg="white"
-          rounded="lg"
-          p="3"
-          py="5"
-          h="20rem"
-          overflowY="scroll"
-          dangerouslySetInnerHTML={{
-            __html: props.description ?? "tahu",
-          }}
-        ></Box>
-      </Stack>
+        p="3"
+      />
     </Box>
   );
 };

@@ -4,6 +4,7 @@ import { Box, Stack, Button, Wrap, WrapItem } from "@chakra-ui/react";
 import { useRecoilState } from "recoil";
 import { producState } from "../state/product";
 import { ProductDTO } from "../type/type";
+import Product from "../aset/data/products.json";
 
 import {
   Footer,
@@ -12,12 +13,13 @@ import {
   ProductComment,
   ProductDetail,
   ProductRating,
+  ProductsRender,
 } from "../components";
 
 const Detail = () => {
   //@ts-ignore
   const [product] = useRecoilState<ProductDTO>(producState);
-  console.log(product);
+  const productLimit = Product.slice(0, 5);
 
   return (
     <Box bg="gray.100">
@@ -47,44 +49,11 @@ const Detail = () => {
             See More
           </Button>
         </Box>
-        <Box mt="5">
-          <Wrap bg="white" justify="space-between" rounded="lg">
-            <WrapItem w={{ xl: "19%", md: "32%", sm: "47%", base: "47%" }}>
-              <ProductCard
-                image_url="https://preview.thenewsmarket.com/Previews/ADID/StillAssets/320x320/558271.jpg"
-                name="spatu"
-                price="200.000"
-              />
-            </WrapItem>
-            <WrapItem w={{ xl: "19%", md: "32%", sm: "47%", base: "47%" }}>
-              <ProductCard
-                image_url="https://preview.thenewsmarket.com/Previews/ADID/StillAssets/320x320/558271.jpg"
-                name="spatu"
-                price="200.000"
-              />
-            </WrapItem>
-            <WrapItem w={{ xl: "19%", md: "32%", sm: "47%", base: "47%" }}>
-              <ProductCard
-                image_url="https://preview.thenewsmarket.com/Previews/ADID/StillAssets/320x320/558271.jpg"
-                name="spatu"
-                price="200.000"
-              />
-            </WrapItem>
-            <WrapItem w={{ xl: "19%", md: "32%", sm: "47%", base: "47%" }}>
-              <ProductCard
-                image_url="https://preview.thenewsmarket.com/Previews/ADID/StillAssets/320x320/558271.jpg"
-                name="spatu"
-                price="200.000"
-              />
-            </WrapItem>
-            <WrapItem w={{ xl: "19%", md: "32%", sm: "47%", base: "47%" }}>
-              <ProductCard
-                image_url="https://preview.thenewsmarket.com/Previews/ADID/StillAssets/320x320/558271.jpg"
-                name="spatu"
-                price="200.000"
-              />
-            </WrapItem>
-          </Wrap>
+        <Box mt="5" bg="white" rounded="lg">
+          <ProductsRender
+            //@ts-ignore
+            dataRenders={productLimit}
+          />
         </Box>
       </Box>
       <Footer />

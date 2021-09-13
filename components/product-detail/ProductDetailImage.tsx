@@ -20,6 +20,7 @@ export const ProductDetailImage: React.FC<ProductDetailImageProps> = (
         />
 
         <ProductDescription
+          display={{ xl: "flex", md: "none", sm: "none", base: "none" }}
           description={props.description}
           measurement={props.measurement}
         />
