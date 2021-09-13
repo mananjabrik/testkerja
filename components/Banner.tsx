@@ -1,8 +1,6 @@
 import React from "react";
-import { Stack, Box, Grid, GridItem } from "@chakra-ui/react";
-import Image1 from "../aset/Group45.png";
-import Image2 from "../aset/Group46.png";
-import { Caraousel, CaraouselProps } from ".";
+import { Grid, GridItem } from "@chakra-ui/react";
+import { Caraousel } from ".";
 export interface BannerProps {
   banner1: StaticImageData[];
   banner2: StaticImageData[];
