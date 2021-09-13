@@ -1,3 +1,4 @@
+//@ts-nocheck
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { Box, Stack, Grid, GridItem } from "@chakra-ui/react";
@@ -26,8 +27,10 @@ const Home: NextPage = () => {
   const dataImage = [Image1, Image2, Image1, Image2];
   const newUpComing = [Image3, Image3, Image3];
   const limitProduct = Product.slice(0, 10);
-  console.log(limitProduct);
 
+  const limitItem = (arr: Array<ProductDTO>, query: number) => {
+    return arr.slice(0, query);
+  };
   const filterItems = (query: string) => {
     return limitProduct?.filter(
       (el) => el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
@@ -49,12 +52,7 @@ const Home: NextPage = () => {
   return (
     <Box bg="gray.100" overflow="hidden">
       <Navbar />
-      <Filter
-        //@ts-ignore
-        brandData={Product}
-        //@ts-ignore
-        onTyping={onTyping}
-      />
+      <Filter brandData={Product} onTyping={onTyping} />
       <Stack direction="row" px="5">
         <Sidebar />
         <Box flex={{ xl: 6, md: 1, sm: 1, base: 1 }}>
@@ -62,10 +60,7 @@ const Home: NextPage = () => {
             <Banner banner1={dataImage} banner2={dataImage} />
           </Box>
           <Box>
-            <ProductsRender
-              //@ts-ignore
-              dataRenders={filterItems(filter)}
-            />
+            <ProductsRender dataRenders={filterItems(filter)} />
           </Box>
           <Box
             mt="5"
@@ -84,7 +79,7 @@ const Home: NextPage = () => {
               </GridItem>
             </Grid>
           </Box>
-          {/* <ProductsRender dataRenders={data ?? []} /> */}
+          <ProductsRender dataRenders={limitItem(Product, 6)} />
         </Box>
       </Stack>
       <JoinCommunity />

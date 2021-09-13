@@ -14,7 +14,7 @@ export const ProductsRender: React.FC<ProducrRenderProps> = (props) => {
   // console.log(product);
 
   return (
-    <Wrap mt={{ xl: "5", md: "4", sm: "3", base: "3" }} justify="space-around">
+    <Wrap mt={{ xl: "5", md: "4", sm: "3", base: "3" }}>
       {props.dataRenders?.map((item) => {
         return (
           <WrapItem
