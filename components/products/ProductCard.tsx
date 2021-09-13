@@ -5,7 +5,6 @@ import { ProductDTO } from "../../type/type";
 import Link from "next/link";
 interface ProductCardProps extends ProductDTO {
   product_click?: () => void;
-  product_enter?: () => void;
 }
 export const ProductCard: React.FC<ProductCardProps> = (props) => {
   const [favorite, setFavorite] = useState(false);
@@ -19,7 +18,6 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
       // overflow="hidden"
       bg="white"
       p={{ xl: "5", md: "4", sm: "3", base: "3" }}
-      onMouseEnter={props.product_enter}
       cursor="pointer"
     >
       <Box

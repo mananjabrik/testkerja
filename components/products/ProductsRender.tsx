@@ -25,8 +25,10 @@ export const ProductsRender: React.FC<ProducrRenderProps> = (props) => {
               image_url="https://preview.thenewsmarket.com/Previews/ADID/StillAssets/320x320/558271.jpg"
               name={item.name}
               price={item.price}
-              product_click={() => router.push("/detail")}
-              product_enter={() => setProduct(item)}
+              product_click={() => {
+                setProduct(item);
+                router.push("/detail");
+              }}
             />
           </WrapItem>
         );
