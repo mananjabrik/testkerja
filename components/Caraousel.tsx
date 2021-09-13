@@ -21,14 +21,16 @@ export const Caraousel: React.FC<CaraouselProps> = (props) => {
     pauseOnHover: true,
   };
   return (
-    <Box
-      rounded={{ xl: "xl", lg: "lg", md: "md", sm: "md", base: "md" }}
-      overflow="hidden"
-    >
+    <Box>
       <Slider {...settings}>
         {props.urls?.map((item: StaticImageData, idx: number) => {
           return (
-            <Box key={idx}>
+            <Box
+              key={idx}
+              w="full"
+              rounded={{ xl: "xl", lg: "lg", md: "md", sm: "md", base: "md" }}
+              overflow="hidden"
+            >
               <Image src={item} alt="aset" loading="lazy" objectFit="cover" />
             </Box>
           );

@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
-import { Box, Stack } from "@chakra-ui/react";
+import { Box, Stack, Grid, GridItem } from "@chakra-ui/react";
 import {
   Banner,
   Caraousel,
@@ -25,9 +25,11 @@ const Home: NextPage = () => {
   const [brand] = useRecoilState(brandState);
   const dataImage = [Image1, Image2, Image1, Image2];
   const newUpComing = [Image3, Image3, Image3];
+  const limitProduct = Product.slice(0, 10);
+  console.log(limitProduct);
 
   const filterItems = (query: string) => {
-    return Product?.filter(
+    return limitProduct?.filter(
       (el) => el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
     );
   };
@@ -59,10 +61,12 @@ const Home: NextPage = () => {
           <Box mt="5">
             <Banner banner1={dataImage} banner2={dataImage} />
           </Box>
-          <ProductsRender
-            //@ts-ignore
-            dataRenders={filterItems(filter)}
-          />
+          <Box>
+            <ProductsRender
+              //@ts-ignore
+              dataRenders={filterItems(filter)}
+            />
+          </Box>
           <Box
             mt="5"
             mx="auto"
@@ -74,7 +78,11 @@ const Home: NextPage = () => {
               base: "16.5rem",
             }}
           >
-            <Caraousel urls={newUpComing} />
+            <Grid templateRows="10% 1fr" templateColumns="repeat(12, 1fr)">
+              <GridItem colSpan={12}>
+                <Caraousel urls={newUpComing} />
+              </GridItem>
+            </Grid>
           </Box>
           {/* <ProductsRender dataRenders={data ?? []} /> */}
         </Box>

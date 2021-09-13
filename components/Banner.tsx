@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Box } from "@chakra-ui/react";
+import { Stack, Box, Grid, GridItem } from "@chakra-ui/react";
 import Image1 from "../aset/Group45.png";
 import Image2 from "../aset/Group46.png";
 import { Caraousel, CaraouselProps } from ".";
@@ -9,39 +9,18 @@ export interface BannerProps {
 }
 export const Banner: React.FC<BannerProps> = (props) => {
   return (
-    <Stack
-      direction={{
-        xl: "row",
-        lg: "row",
-        md: "row",
-        sm: "column",
-        base: "column",
-      }}
-      justify="space-around"
-      display={{ xl: "flex", md: "flex", sm: "block", base: "none" }}
+    <Grid
+      templateRows="10% 1fr"
+      templateColumns="repeat(12, 1fr)"
+      gap={4}
+      display={{ xl: "grid", md: "grid", sm: "none", base: "none" }}
     >
-      <Box
-        w={{
-          xl: "40rem",
-          lg: "30rem",
-          md: "22rem",
-          sm: "35rem",
-          base: "24rem",
-        }}
-      >
+      <GridItem colSpan={6}>
         <Caraousel urls={props.banner1} />
-      </Box>
-      <Box
-        w={{
-          xl: "40rem",
-          lg: "30rem",
-          md: "22rem",
-          sm: "35rem",
-          base: "24rem",
-        }}
-      >
+      </GridItem>
+      <GridItem colSpan={6}>
         <Caraousel urls={props.banner2} />
-      </Box>
-    </Stack>
+      </GridItem>
+    </Grid>
   );
 };
