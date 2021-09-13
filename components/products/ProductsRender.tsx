@@ -11,7 +11,6 @@ interface ProducrRenderProps {
 export const ProductsRender: React.FC<ProducrRenderProps> = (props) => {
   const [product, setProduct] = useRecoilState(producState);
   const router = useRouter();
-  // console.log(product);
 
   return (
     <Wrap mt={{ xl: "5", md: "4", sm: "3", base: "3" }}>
