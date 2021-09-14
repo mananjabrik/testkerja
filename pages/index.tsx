@@ -30,7 +30,6 @@ const Home: NextPage = () => {
   const limitItem = (arr: Array<ProductDTO>, query: number) => {
     return arr.slice(0, query);
   };
-
   const onTyping = (e: any) => {
     setFilter(e.target.value);
   };

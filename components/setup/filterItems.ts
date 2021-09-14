@@ -13,12 +13,15 @@ export const filterItems = (
     );
   }
   if (by === "color") {
-    //todo filter array color, on singgle item
-    return;
+    return arr.filter((product) =>
+      product.variants?.some(
+        (color) =>
+          color.color?.name?.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      )
+    );
   }
   if (by === "size") {
-    //todo filter array size, on singgle item
-    return;
+    //todo filter object array inside object array with object array inside size, on singgle item  wtf is this -_-
   } else {
     return arr?.filter(
       (el) => el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
